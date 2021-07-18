@@ -6,12 +6,12 @@ print_folder_recurse() {
         if [ -d "$file" ];then
 #            echo "dir: $file"
             print_folder_recurse "$file"
-        elif [ -x "$file" ]; then
+        elif [ -f "$file" ]; then
             echo "file: $file"
+			bash ./isAccess.sh $file
         fi
     done
 }
 
 
 print_folder_recurse $1
-
